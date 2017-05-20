@@ -1,0 +1,22 @@
+version: '2.0'
+
+cisco_spark.handle_webhook:
+    description: >
+        Handles an inbound webhook
+    type: direct
+    input:
+        - messageId
+        - roomId
+    tasks:
+        get_message:
+            action: cisco_spark.get_message
+            input:
+                messageId: <% $.messageId %>
+            publish:
+                text: <% task(get_message).result.result.text %>
+            on-success: handle_message
+        handle_message:
+            action: chatops.run
+            input:
+                text: <% $.text %>
+                channel: <% $.roomId %>
