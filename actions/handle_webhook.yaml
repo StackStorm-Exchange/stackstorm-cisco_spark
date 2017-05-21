@@ -1,5 +1,5 @@
 ---
-description: Handle and inbound webhook chatops request
+description: Handle inbound webhook ChatOps request
 enabled: true
 runner_type: mistral-v2
 entry_point: workflows/handle_webhook.yaml
