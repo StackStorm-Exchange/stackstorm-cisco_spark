@@ -1,20 +1,14 @@
 ---
-uid: 'rule:cisco_spark:chatops_webhook'
-tags: []
-type:
-  ref: standard
-  parameters:
-enabled: false
-name: chatops_webhook
-trigger:
-  type: core.st2.webhook
-  parameters:
-    url: cisco_spark_chatops
-criteria:
-action:
-  ref: cisco_spark.handle_webhook
-  parameters:
-    roomId: '{{trigger.body.data.roomId}}'
-    messageId: '{{trigger.body.data.id}}'
-ref: cisco_spark.chatops_webhook
-pack: cisco_spark
+  name: chatops_webhook
+  pack: cisco_spark
+  enabled: false
+
+  trigger:
+    type: core.st2.webhook
+    parameters:
+      url: cisco_spark_chatops
+  action:
+    ref: cisco_spark.handle_webhook
+    parameters:
+      roomId: '{{trigger.body.data.roomId}}'
+      messageId: '{{trigger.body.data.id}}'
