@@ -1,0 +1,14 @@
+---
+description: Handle inbound webhook ChatOps request
+enabled: true
+runner_type: mistral-v2
+entry_point: workflows/handle_webhook.yaml
+name: handle_webhook
+pack: cisco_spark
+parameters:
+  messageId:
+    required: true
+    type: string
+  roomId:
+    required: true
+    type: string
