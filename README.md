@@ -6,12 +6,12 @@ the Enterprise Voice, instant messaging and collaboration platform by Cisco.
 
 ## Using the Webhook
 
-You can use `hubot-spark` with Cisco Spark configuration, also this can
-be combined with webhooks by enabling the chatops rule.
+You can use `hubot-spark` with Cisco Spark configuration. This can also
+be combined with webhooks by enabling the ChatOps rule.
 
 ## Actions
 
-Currently, the following actions listed bellow are supported:
+Currently, the following actions listed below are supported:
 
 ### Message actions
 
