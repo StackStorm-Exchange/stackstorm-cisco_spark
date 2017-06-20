@@ -1,6 +1,6 @@
 ---
 name: delete_webhook
-runner_type: run-python
+runner_type: python-script
 description: Delete a webhook
 enabled: true
 entry_point: generic_action.py

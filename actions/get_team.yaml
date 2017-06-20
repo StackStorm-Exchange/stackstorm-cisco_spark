@@ -1,6 +1,6 @@
 ---
 name: get_team
-runner_type: run-python
+runner_type: python-script
 description: Get a specific team
 enabled: true
 entry_point: generic_action.py

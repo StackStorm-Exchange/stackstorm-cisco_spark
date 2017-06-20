@@ -1,6 +1,6 @@
 ---
 name: update_webhook
-runner_type: run-python
+runner_type: python-script
 description: Update a webhook's parameters
 enabled: true
 entry_point: generic_action.py
