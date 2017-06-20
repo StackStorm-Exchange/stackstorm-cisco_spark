@@ -1,6 +1,6 @@
 ---
 name: list_messages
-runner_type: run-python
+runner_type: python-script
 description: List messages available
 enabled: true
 entry_point: generic_action.py

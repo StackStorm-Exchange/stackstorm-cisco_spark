@@ -1,6 +1,6 @@
 ---
 name: list_rooms
-runner_type: run-python
+runner_type: python-script
 description: List rooms available
 enabled: true
 entry_point: generic_action.py

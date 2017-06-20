@@ -1,6 +1,6 @@
 ---
 name: delete_team
-runner_type: run-python
+runner_type: python-script
 description: Delete a team
 enabled: true
 entry_point: generic_action.py

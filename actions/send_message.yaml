@@ -1,6 +1,6 @@
 ---
 name: send_message
-runner_type: run-python
+runner_type: python-script
 description: Send a message
 enabled: true
 entry_point: generic_action.py

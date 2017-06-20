@@ -1,6 +1,6 @@
 ---
 name: get_room
-runner_type: run-python
+runner_type: python-script
 description: Get a specific room
 enabled: true
 entry_point: generic_action.py
