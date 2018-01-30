@@ -2,7 +2,7 @@
 
 ## 0.4.0
 
-- Fixed issue in newer versions of the package not having _json field.
+- Fixed issue in newer versions of the package not having `_json` field.
 - Upgrade package and pin to 0.8.4 of ciscosparkapi
 
 ## 0.3.0
