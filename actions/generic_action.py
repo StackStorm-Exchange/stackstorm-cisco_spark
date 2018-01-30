@@ -13,6 +13,6 @@ class GenericAction(CiscoSparkAction):
         if method_name == 'list':
             result = list(result)  # iterate generator
         if isinstance(result, list):
-            return [x._json for x in result]  # pylint: disable=no-member
+            return [x.json_data for x in result]  # pylint: disable=no-member
         else:
-            return result._json  # pylint: disable=no-member
+            return result.json_data  # pylint: disable=no-member
