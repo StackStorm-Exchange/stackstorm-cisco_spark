@@ -2,7 +2,7 @@
 
 ## 0.5.0
 
-- Add the cmmands working in the group space
+- Activate the commands in the group space
 
 ## 0.4.0
 
