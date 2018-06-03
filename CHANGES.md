@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+- Activate the commands in the group space
+
 ## 0.4.0
 
 - Fixed issue in newer versions of the package not having `_json` field.

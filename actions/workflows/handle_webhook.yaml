@@ -14,8 +14,16 @@ cisco_spark.handle_webhook:
                 messageId: <% $.messageId %>
             publish:
                 text: <% task(get_message).result.result.text %>
-            on-success: handle_message
-        handle_message:
+                direct: <% task(get_message).result.result.roomType %>
+            on-success:
+                - direct_room: <% $.direct = 'direct' %>
+                - group_room: <% $.direct = 'group' %>
+        group_room:
+            action: chatops.run
+            input:
+                text: <% regex_replace($.text, "^[^\\s]+", "") %>
+                channel: <% $.roomId %>
+        direct_room:
             action: chatops.run
             input:
                 text: <% $.text %>
