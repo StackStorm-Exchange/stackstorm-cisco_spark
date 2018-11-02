@@ -1,30 +1,33 @@
-version: '2.0'
-
-cisco_spark.handle_webhook:
-    description: >
-        Handles an inbound webhook
-    type: direct
+---
+version: '1.0'
+description: >
+  Handles an inbound webhook
+input:
+  - messageId
+  - roomId
+tasks:
+  get_message:
+    action: cisco_spark.get_message
     input:
-        - messageId
-        - roomId
-    tasks:
-        get_message:
-            action: cisco_spark.get_message
-            input:
-                messageId: <% $.messageId %>
-            publish:
-                text: <% task(get_message).result.result.text %>
-                direct: <% task(get_message).result.result.roomType %>
-            on-success:
-                - direct_room: <% $.direct = 'direct' %>
-                - group_room: <% $.direct = 'group' %>
-        group_room:
-            action: chatops.run
-            input:
-                text: <% regex_replace($.text, "^[^\\s]+", "") %>
-                channel: <% $.roomId %>
-        direct_room:
-            action: chatops.run
-            input:
-                text: <% $.text %>
-                channel: <% $.roomId %>
+      messageId: <% ctx().messageId %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - text: <% result().result.text %>
+          - direct: <% result().result.roomType %>
+      - when: <% succeeded() and (ctx().direct = 'direct') %>
+        do:
+          - direct_room
+      - when: <% succeeded() and (ctx().direct = 'group') %>
+        do:
+          - group_room
+  group_room:
+    action: chatops.run
+    input:
+      text: <% regex_replace(ctx().text, "^[^\\s]+", "") %>
+      channel: <% ctx().roomId %>
+  direct_room:
+    action: chatops.run
+    input:
+      text: <% ctx().text %>
+      channel: <% ctx().roomId %>

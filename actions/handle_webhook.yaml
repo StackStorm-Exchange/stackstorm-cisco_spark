@@ -1,7 +1,7 @@
 ---
 description: Handle inbound webhook ChatOps request
 enabled: true
-runner_type: mistral-v2
+runner_type: orquesta
 entry_point: workflows/handle_webhook.yaml
 name: handle_webhook
 pack: cisco_spark
