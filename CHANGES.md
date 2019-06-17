@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+- Replace Mistral workflow with Orquesta. Requires ST2 >= 3.0
+
 ## 0.5.0
 
 - Activate the commands in the group space
