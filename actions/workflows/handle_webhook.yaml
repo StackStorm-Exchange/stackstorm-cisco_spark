@@ -11,14 +11,14 @@ tasks:
     input:
       messageId: <% ctx().messageId %>
     next:
-      - when: <% succeeded() %>
+      - when: <% succeeded() and result().result.roomType = 'direct' %>
         publish:
           - text: <% result().result.text %>
-          - direct: <% result().result.roomType %>
-      - when: <% succeeded() and (ctx().direct = 'direct') %>
         do:
           - direct_room
-      - when: <% succeeded() and (ctx().direct = 'group') %>
+      - when: <% succeeded() and result().result.roomType = 'group' %>
+        publish:
+          - text: <% result().result.text %>
         do:
           - group_room
   group_room:
